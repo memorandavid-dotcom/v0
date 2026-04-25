@@ -12,7 +12,6 @@ import {
 } from "@/components/ui/dropdown-menu";
 import {
   Shield,
-  Bell,
   User,
   Settings,
   LogOut,
@@ -20,12 +19,17 @@ import {
   Radio,
 } from "lucide-react";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { NotificationCenter } from "./notification-center";
+import type { AlertItem, FamilyMessage, NewsItem } from "@/lib/mock-data";
 
 interface HeaderProps {
   onMenuToggle?: () => void;
+  alerts?: AlertItem[];
+  familyMessages?: FamilyMessage[];
+  newsItems?: NewsItem[];
 }
 
-export function Header({ onMenuToggle }: HeaderProps) {
+export function Header({ onMenuToggle, alerts = [], familyMessages = [], newsItems = [] }: HeaderProps) {
   return (
     <header className="sticky top-0 z-50 border-b border-border/50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="flex h-14 sm:h-16 items-center justify-between px-4 lg:px-6">
@@ -66,12 +70,11 @@ export function Header({ onMenuToggle }: HeaderProps) {
 
           <ThemeToggle />
 
-          <Button variant="ghost" size="icon" className="relative">
-            <Bell className="h-5 w-5" />
-            <span className="absolute -right-1 -top-1 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-[10px] font-bold text-white">
-              5
-            </span>
-          </Button>
+          <NotificationCenter
+            alerts={alerts}
+            familyMessages={familyMessages}
+            newsItems={newsItems}
+          />
 
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
