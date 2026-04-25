@@ -66,7 +66,12 @@ export default function DashboardPage() {
         highContrast && "high-contrast"
       )}
     >
-      <Header onMenuToggle={() => setSidebarOpen(true)} />
+      <Header
+        onMenuToggle={() => setSidebarOpen(true)}
+        alerts={mockAlerts}
+        familyMessages={mockFamilyMessages}
+        newsItems={mockNewsItems}
+      />
 
       <main className="px-4 py-4 sm:p-6 lg:p-8 pb-24 lg:pb-8">
         {/* Guardian Cards - Top Bar */}
