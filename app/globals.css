@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
+@import 'leaflet/dist/leaflet.css';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -151,4 +152,46 @@
 }
 .scrollbar-hidden::-webkit-scrollbar {
   display: none;
+}
+
+/* Leaflet Map Customizations */
+.leaflet-container {
+  background: #1e293b;
+  font-family: var(--font-sans);
+}
+
+.leaflet-popup-content-wrapper {
+  background: oklch(var(--background));
+  color: oklch(var(--foreground));
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.leaflet-popup-tip {
+  background: oklch(var(--background));
+}
+
+.leaflet-popup-content {
+  margin: 8px 12px;
+}
+
+.custom-sos-marker,
+.custom-evac-marker {
+  background: transparent !important;
+  border: none !important;
+}
+
+@keyframes marker-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+.leaflet-control-attribution {
+  background: rgba(0, 0, 0, 0.5) !important;
+  color: #888 !important;
+  font-size: 10px !important;
+}
+
+.leaflet-control-attribution a {
+  color: #aaa !important;
 }
