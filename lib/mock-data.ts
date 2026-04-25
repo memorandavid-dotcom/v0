@@ -226,6 +226,134 @@ export const mockEnvironmentalMetrics: EnvironmentalMetrics = {
   },
 };
 
+// Hourly Data for Interactive Cards
+export interface HourlyDataPoint {
+  hour: string;
+  value: number;
+  label?: string;
+}
+
+export interface RiskForecastData {
+  timeframe: "24h" | "48h" | "72h";
+  floodRisk: number;
+  primaryThreat: string;
+  secondaryThreats: string[];
+  confidence: number;
+  details: string;
+}
+
+// Heat Index hourly data (24 hours)
+export const mockHeatIndexHourly: HourlyDataPoint[] = [
+  { hour: "12AM", value: 28, label: "Normal" },
+  { hour: "1AM", value: 27, label: "Normal" },
+  { hour: "2AM", value: 26, label: "Normal" },
+  { hour: "3AM", value: 26, label: "Normal" },
+  { hour: "4AM", value: 25, label: "Normal" },
+  { hour: "5AM", value: 26, label: "Normal" },
+  { hour: "6AM", value: 28, label: "Normal" },
+  { hour: "7AM", value: 31, label: "Caution" },
+  { hour: "8AM", value: 34, label: "Caution" },
+  { hour: "9AM", value: 37, label: "Extreme Caution" },
+  { hour: "10AM", value: 39, label: "Danger" },
+  { hour: "11AM", value: 41, label: "Danger" },
+  { hour: "12PM", value: 42, label: "Danger" },
+  { hour: "1PM", value: 44, label: "Danger" },
+  { hour: "2PM", value: 45, label: "Extreme Danger" },
+  { hour: "3PM", value: 44, label: "Danger" },
+  { hour: "4PM", value: 42, label: "Danger" },
+  { hour: "5PM", value: 40, label: "Danger" },
+  { hour: "6PM", value: 37, label: "Extreme Caution" },
+  { hour: "7PM", value: 34, label: "Caution" },
+  { hour: "8PM", value: 32, label: "Caution" },
+  { hour: "9PM", value: 30, label: "Normal" },
+  { hour: "10PM", value: 29, label: "Normal" },
+  { hour: "11PM", value: 28, label: "Normal" },
+];
+
+// Precipitation hourly data (24 hours)
+export const mockPrecipitationHourly: HourlyDataPoint[] = [
+  { hour: "12AM", value: 0 },
+  { hour: "1AM", value: 0.5 },
+  { hour: "2AM", value: 2 },
+  { hour: "3AM", value: 5 },
+  { hour: "4AM", value: 8 },
+  { hour: "5AM", value: 12 },
+  { hour: "6AM", value: 15 },
+  { hour: "7AM", value: 10 },
+  { hour: "8AM", value: 5 },
+  { hour: "9AM", value: 2 },
+  { hour: "10AM", value: 0 },
+  { hour: "11AM", value: 0 },
+  { hour: "12PM", value: 0 },
+  { hour: "1PM", value: 3 },
+  { hour: "2PM", value: 8 },
+  { hour: "3PM", value: 12 },
+  { hour: "4PM", value: 5 },
+  { hour: "5PM", value: 0 },
+  { hour: "6PM", value: 0 },
+  { hour: "7PM", value: 0 },
+  { hour: "8PM", value: 0 },
+  { hour: "9PM", value: 0 },
+  { hour: "10PM", value: 0 },
+  { hour: "11PM", value: 0 },
+];
+
+// River Level hourly data (24 hours)
+export const mockRiverLevelHourly: HourlyDataPoint[] = [
+  { hour: "12AM", value: 15.2 },
+  { hour: "1AM", value: 15.0 },
+  { hour: "2AM", value: 14.8 },
+  { hour: "3AM", value: 14.5 },
+  { hour: "4AM", value: 14.8 },
+  { hour: "5AM", value: 15.5 },
+  { hour: "6AM", value: 16.2 },
+  { hour: "7AM", value: 16.8 },
+  { hour: "8AM", value: 17.2 },
+  { hour: "9AM", value: 17.5 },
+  { hour: "10AM", value: 17.8 },
+  { hour: "11AM", value: 18.0 },
+  { hour: "12PM", value: 18.2 },
+  { hour: "1PM", value: 18.3 },
+  { hour: "2PM", value: 18.5 },
+  { hour: "3PM", value: 18.5 },
+  { hour: "4PM", value: 18.4 },
+  { hour: "5PM", value: 18.3 },
+  { hour: "6PM", value: 18.2 },
+  { hour: "7PM", value: 18.0 },
+  { hour: "8PM", value: 17.8 },
+  { hour: "9PM", value: 17.5 },
+  { hour: "10PM", value: 17.2 },
+  { hour: "11PM", value: 17.0 },
+];
+
+// Risk Forecast data for different timeframes
+export const mockRiskForecasts: RiskForecastData[] = [
+  {
+    timeframe: "24h",
+    floodRisk: 45,
+    primaryThreat: "Localized Flooding",
+    secondaryThreats: ["Road Closures", "Power Outages"],
+    confidence: 85,
+    details: "Moderate risk of localized flooding in low-lying areas. Expected rainfall of 30-50mm. Marikina River expected to remain below alert level.",
+  },
+  {
+    timeframe: "48h",
+    floodRisk: 70,
+    primaryThreat: "Flash Flooding",
+    secondaryThreats: ["Landslides", "Evacuation Required", "Infrastructure Damage"],
+    confidence: 75,
+    details: "High risk of flash flooding as Typhoon Kristine approaches. Expected rainfall of 100-150mm. Marikina River may reach alert level. Pre-emptive evacuation recommended for riverside communities.",
+  },
+  {
+    timeframe: "72h",
+    floodRisk: 85,
+    primaryThreat: "Major Flooding",
+    secondaryThreats: ["Widespread Evacuation", "Bridge Closures", "Landslides", "Extended Power Outages"],
+    confidence: 65,
+    details: "Very high risk of major flooding. Typhoon Kristine expected to make landfall. Total rainfall may exceed 200mm. Multiple rivers may breach critical levels. Mandatory evacuation for all flood-prone areas.",
+  },
+];
+
 // Rescue Teams
 export const mockRescueTeams: RescueTeam[] = [
   {
